@@ -1,0 +1,129 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Контакты - ФПЧО{% endblock %}
+
+{% block content %}
+<section class="page-hero page-hero-short">
+    <div class="page-hero-background">
+        <img src="{% static 'images/contacts_padel.jpg' %}" alt="Контакты" loading="eager">
+        <div class="page-hero-overlay"></div>
+    </div>
+    <div class="page-hero-content">
+        <h1 data-aos="fade-up">Свяжитесь с нами</h1>
+        <p data-aos="fade-up" data-aos-delay="100">Мы всегда рады общению с игроками, тренерами и партнёрами</p>
+    </div>
+</section>
+
+<section class="contacts-content">
+    <div class="container">
+        <div class="contacts-grid">
+            <div class="contacts-info" data-aos="fade-right">
+                <h2>{{ contact.title }}</h2>
+                <p class="contacts-intro">
+                    {{ contact.text }}
+                </p>
+
+                <div class="contact-items">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <a href="mailto:padel74@mail.ru">{{ contact.email }}</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Телефон</h3>
+                            <a href="tel:+79517961474">{{ contact.phone }}</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Адрес</h3>
+                            <p>{{ contact.address }}</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Время работы</h3>
+                            <p>Пн-Пт: 9:00 - 18:00<br>Сб-Вс: По договорённости</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-section">
+                    <h3>Мы в социальных сетях</h3>
+                    <div class="social-links-large">
+                        <a href="#" class="social-link-large" aria-label="Telegram">
+                            <i class="fab fa-telegram"></i>
+                            <span>Telegram</span>
+                        </a>
+                        <a href="#" class="social-link-large" aria-label="VK">
+                            <i class="fab fa-vk"></i>
+                            <span>VKontakte</span>
+                        </a>
+                        <a href="#" class="social-link-large" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contacts-visual" data-aos="fade-left">
+                <div class="contact-card">
+                    <img src="{% static 'images/padel_tennis_court_p_89346806.jpg' %}" alt="Наша команда" loading="lazy">
+                    <div class="contact-card-content">
+                        <h3>Присоединяйтесь к нам</h3>
+                        <p>Станьте частью сообщества падела в Челябинской области</p>
+                    </div>
+                </div>
+
+                <div class="info-cards">
+                    <div class="info-card">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h4>Для игроков</h4>
+                            <p>Участвуйте в турнирах и тренировках</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-handshake"></i>
+                        <div>
+                            <h4>Для партнёров</h4>
+                            <p>Сотрудничество и спонсорство</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="map-section">
+    <div class="container">
+        <h2 data-aos="fade-up">Как нас найти</h2>
+        <div class="map-placeholder" data-aos="fade-up" data-aos-delay="100">
+            <div class="map-info">
+                <i class="fas fa-map-marked-alt"></i>
+                <p>{{ contact.address }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

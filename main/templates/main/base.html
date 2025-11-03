@@ -1,0 +1,110 @@
+{% load static %}
+<link rel="icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Федерация падела Челябинской области{% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav-wrapper">
+            <div class="nav-container">
+                <div class="logo-section">
+                    <a href="{% url 'home' %}" class="logo-link">
+                        <div>
+                            <img src="{% static 'images/favicon.png' %}" alt="Логотип Падел Лиги" width="40" height="40">
+                        </div>
+                        <div class="logo-text">
+                            <span class="brand-name">Федерация падела</span>
+                            <span class="brand-subtitle">Челябинской области</span>
+                        </div>
+                    </a>
+                </div>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-menu">
+                    <li><a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Главная</a></li>
+                    <li><a href="{% url 'tournaments' %}" class="nav-link {% if request.resolver_match.url_name == 'tournaments' %}active{% endif %}">Турниры</a></li>
+                    <li><a href="{% url 'about' %}" class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">О ФПЧО</a></li>
+                    <li><a href="{% url 'contacts' %}" class="nav-link {% if request.resolver_match.url_name == 'contacts' %}active{% endif %}">Контакты</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div>
+                            <img src="{% static 'images/favicon.png' %}" alt="Логотип Падел Лиги" width="40" height="40">
+                        </div>
+                        <div class="logo-text">
+                            <span class="brand-name">Федерация падела</span>
+                            <span class="brand-subtitle">Челябинской области</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Развиваем динамичный, современный и доступный вид спорта для всех возрастов.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:padel74@mail.ru"><i class="fas fa-envelope"></i> {{ contact.email }}</a></li>
+                        <li><a href="tel:+79517961474"><i class="fas fa-phone"></i> {{ contact.phone }}</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> {{ contact.address }}</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Социальные сети</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Telegram">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="VK">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Федерация падела Челябинской области. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

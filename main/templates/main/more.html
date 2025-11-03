@@ -1,0 +1,48 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Подробнее о паделе{% endblock %}
+
+{% block content %}
+
+<section class="page-hero page-hero-short">
+    <div class="page-hero-background">
+        <img src="{% static 'images/more_padel.jpg' %}" alt="Подробнее" loading="eager">
+        <div class="page-hero-overlay"></div>
+    </div>
+    <div class="page-hero-content">
+        <h1 data-aos="fade-up">Узнайте больше</h1>
+        <p data-aos="fade-up" data-aos-delay="100">С каждым годом этот вид спорта становится все более популярным</p>
+    </div>
+</section>
+
+<section class="about-intro">
+    <div class="container">
+        <div class="about-intro-grid">
+            <div class="about-intro-text" data-aos="fade-right">
+                <h2>{{ about_page.title }}</h2>
+                <p>
+                   {{ blocks.text|linebreaksbr }}
+                </p>
+            </div>
+            <div class="about-intro-image" data-aos="fade-left">
+                <img src="{% static 'main/Sanchez-Casal_Paddle_Tennis_Game.jpg' %}" alt="Падел команда" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+{#<section class="info-page">#}
+{#  {% for block in blocks %}#}
+{#  <div class="info-block {% if block.image_side == 'right' %}reverse{% endif %}">#}
+{#    <div class="info-image">#}
+{#      <img src="{{ block.image.url }}" alt="{{ block.title }}">#}
+{#    </div>#}
+{#    <div class="info-text">#}
+{#      <h2>{{ block.title }}</h2>#}
+{#      <p>{{ block.text|linebreaks }}</p>#}
+{#    </div>#}
+{#  </div>#}
+{#  {% endfor %}#}
+{#</section>#}
+{% endblock %}

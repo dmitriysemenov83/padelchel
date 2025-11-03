@@ -1,0 +1,123 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}О Федерации - ФПЧО{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <div class="page-hero-background">
+        <img src="{% static 'images/padel_tennis_court_p_721522c5.jpg' %}" alt="О федерации" loading="eager">
+        <div class="page-hero-overlay"></div>
+    </div>
+    <div class="page-hero-content">
+        <h1 data-aos="fade-up">О Федерации падела</h1>
+        <p data-aos="fade-up" data-aos-delay="100">Челябинской области</p>
+    </div>
+</section>
+
+<section class="about-intro">
+    <div class="container">
+        <div class="about-intro-grid">
+            <div class="about-intro-text" data-aos="fade-right">
+                <h2>{{ about_page.title }}</h2>
+                <p>
+                   {{ about_page.content|linebreaksbr }}
+                </p>
+            </div>
+            <div class="about-intro-image" data-aos="fade-left">
+                <img src="{% static 'images/padel_tennis_tournam_bb436e44.jpg' %}" alt="Падел команда" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="goals-section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Наши цели</h2>
+            <div class="title-underline"></div>
+        </div>
+        
+        <div class="goals-grid">
+            <div class="goal-card" data-aos="fade-up">
+                <div class="goal-number">01</div>
+                <h3>Популяризация</h3>
+                <p>Популяризировать падел среди всех возрастов и уровней подготовки, делая спорт доступным каждому.</p>
+            </div>
+            
+            <div class="goal-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="goal-number">02</div>
+                <h3>Организация</h3>
+                <p>Организовывать регулярные турниры, тренировки и мастер-классы с профессиональными тренерами.</p>
+            </div>
+            
+            <div class="goal-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="goal-number">03</div>
+                <h3>Поддержка</h3>
+                <p>Поддерживать талантливых спортсменов и создавать условия для их профессионального роста.</p>
+            </div>
+            
+            <div class="goal-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="goal-number">04</div>
+                <h3>Сотрудничество</h3>
+                <p>Сотрудничать с образовательными и спортивными учреждениями для развития падела в регионе.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="gallery-section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Галерея</h2>
+            <div class="title-underline"></div>
+        </div>
+        
+        <div class="photo-gallery">
+            <div class="gallery-item" data-aos="zoom-in">
+                <img src="{% static 'images/padel_tennis_court_p_24fb1d6c.jpg' %}" alt="Падел игра" loading="lazy">
+            </div>
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                <img src="{% static 'images/padel_tennis_tournam_37a95e01.jpg' %}" alt="Турнир" loading="lazy">
+            </div>
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                <img src="{% static 'images/padel_court_indoor_o_dcdf20f6.jpg' %}" alt="Корт" loading="lazy">
+            </div>
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                <img src="{% static 'images/padel_court_indoor_o_74ec5047.jpg' %}" alt="Крытый корт" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="values-section">
+    <div class="container">
+        <div class="values-content" data-aos="fade-up">
+            <h2>Наши ценности</h2>
+            <div class="values-list">
+                <div class="value-item">
+                    <i class="fas fa-heart"></i>
+                    <div>
+                        <h3>Доступность</h3>
+                        <p>Мы верим, что падел должен быть доступен каждому жителю региона</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-handshake"></i>
+                    <div>
+                        <h3>Сообщество</h3>
+                        <p>Объединяем людей через любовь к спорту и здоровому образу жизни</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-rocket"></i>
+                    <div>
+                        <h3>Развитие</h3>
+                        <p>Постоянно работаем над улучшением инфраструктуры и качества мероприятий</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

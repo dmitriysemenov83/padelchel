@@ -1,0 +1,435 @@
+/* ---------------------------- */
+/* 🌐 Общие стили и шрифт */
+/* ---------------------------- */
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-main {
+    flex: 1;
+}
+
+
+
+/* ---------------------------- */
+/* 🖁️ Хедер */
+/* ---------------------------- */
+.site-header {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 0.2rem 2rem;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+}
+
+.title-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.site-title {
+    font-size: 1.25rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.site-subtitle {
+    font-size: 0.9rem;
+    margin: 0;
+    font-weight: 400;
+    color: #ccc;
+}
+
+
+/* ---------------------------- */
+/* 📌 Навигация */
+/* ---------------------------- */
+.main-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.main-nav a {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.main-nav a:hover {
+    color: #1f7cff;
+}
+
+
+/* ---------------------------- */
+/* 🧱 Основной контент */
+/* ---------------------------- */
+.site-main {
+    flex: 1;
+    padding: 2rem;
+}
+
+
+/* ---------------------------- */
+/* 🌟 Блок hero */
+/* ---------------------------- */
+.hero {
+    position: relative;
+    height: 72vh; /* блок стал уже */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden; /* важно, чтобы фон подрезался */
+    padding: 0 2rem; /* оставляем только горизонтальные отступы */
+}
+
+/* фон с подрезкой сверху */
+.hero {
+    position: relative;
+    min-height: 60vh; /* блок адаптивный */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    padding: 2rem;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -15%; /* чуть меньше подрезаем на мобильных */
+    left: 0;
+    width: 100%;
+    height: 130%;
+    background: url('/static/images/hero-bg.jpg') center center / cover no-repeat;
+    z-index: 0;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* адаптивный текст */
+.hero h1 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #f0f0f0;
+}
+
+/* кнопка */
+.btn-primary {
+    background-color: #1f7cff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #155fcf;
+}
+
+/* медиазапрос для мобильных */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 50vh; /* уменьшаем высоту блока */
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .hero::before {
+        top: -10%; /* меньше подрезаем верх на мобильных */
+    }
+
+    .btn-primary {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+
+
+/* ---------------------------- */
+/* 📄 Секция "О нас" */
+/* ---------------------------- */
+
+/*.about {*/
+/*    padding: 3rem 2rem;*/
+/*    background-color: #ffffff;*/
+/*}*/
+
+/*.about h2 {*/
+/*    font-size: 2.3rem;*/
+/*    margin-bottom: 1rem;*/
+/*}*/
+
+/*.about p {*/
+/*    font-size: 1.5rem;*/
+/*    color: #444;*/
+/*}*/
+
+.about-hero {
+    position: relative;
+    overflow: hidden;
+    height: 75vh; /* высота блока */
+}
+
+.about-hero img {
+    display: block;
+    width: 100%;
+    height: 120%;       /* чтобы заполнить блок */
+    object-fit: cover;  /* картинка не сплющена */
+    object-position: center -15%; /* сдвигаем верх, чтобы подрезать */
+}
+
+
+/* ---------------------------- */
+/* 🔻 Футер */
+/* ---------------------------- */
+.site-footer {
+    background-color: #f5f5f5;
+    padding: 2rem;
+    font-size: 1rem;
+    border-top: 1px solid #ddd;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.footer-left,
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-left p,
+.footer-right p {
+    margin: 0;
+}
+
+.footer-right a {
+    text-decoration: none;
+    color: #1a1a1a;
+    transition: color 0.2s ease;
+}
+
+.footer-right a:hover {
+    color: #1f7cff;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.social-icon {
+    font-size: 2rem;
+    color: #1a1a1a;
+    transition: color 0.2s ease;
+}
+
+.social-icon:hover {
+    color: #1f7cff;
+}
+
+
+/* ---------------------------- */
+/* 📱 Адаптивность */
+/* ---------------------------- */
+@media (max-width: 768px) {
+    .container,
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .main-nav {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    .footer-left,
+    .footer-right {
+        align-items: center;
+    }
+}
+
+/* ---------------------------- */
+/* 📄 Секция "Подробнее"*/
+/* ---------------------------- */
+
+.info-page {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.info-block {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.info-block.reverse {
+    flex-direction: row-reverse;
+}
+
+.info-image img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.info-text {
+    max-width: 600px;
+}
+
+.info-text h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.info-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* ---------------------------- */
+/* 📄 Секция "О нас"*/
+/* ---------------------------- */
+
+.about-hero {
+    margin: 0;
+    padding: 0;
+}
+
+.about-hero img {
+    width: 100%;
+    height: auto;
+    display: block; /* убирает лишние отступы у <img> */
+}
+
+.about-text {
+    font-size: 1.25rem;  /* было 1.1rem */
+    line-height: 1.75;
+    color: #333;
+}
+
+/* ---------------------------- */
+/* 📄 Секция "Контакты"*/
+/* ---------------------------- */
+
+/*.contacts-hero {*/
+/*    background-color: #f7f7f7;*/
+/*    padding: 40px 0;*/
+/*    text-align: center;*/
+/*}*/
+/*.contacts-info {*/
+/*    padding: 20px 0;*/
+/*}*/
+
+.contacts-hero {
+    padding: 40px 0;
+}
+
+.contacts-info {
+    margin-top: 20px;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-list li {
+    margin: 10px 0;
+    font-size: 1.2em;
+}

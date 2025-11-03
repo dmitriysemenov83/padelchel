@@ -1,0 +1,96 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Главная - Федерация падела Челябинской области{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="hero-background">
+        <img src="{% static 'images/padel_tennis_court_p_63ae1399.jpg' %}" alt="Падел корт" loading="eager">
+        <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+        <h1 class="hero-title" data-aos="fade-up">Федерация падела<br>Челябинской области</h1>
+        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">
+            Развиваем динамичный, современный и доступный вид спорта для всех возрастов
+        </p>
+        <div class="hero-buttons" data-aos="fade-up" data-aos-delay="200">
+            <a href="{% url 'more' %}" class="btn btn-primary">Узнать больше</a>
+            <a href="{% url 'tournaments' %}" class="btn btn-secondary">Турниры</a>
+            <a href="{% url 'contacts' %}" class="btn btn-secondary">Связаться с нами</a>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <span></span>
+    </div>
+</section>
+
+<section class="mission-section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">{{ about_section.title }}</h2>
+            <div class="title-underline"></div>
+        </div>
+        <div class="mission-content" data-aos="fade-up" data-aos-delay="100">
+            {{ about_section.content|linebreaks }}
+        </div>
+    </div>
+</section>
+
+<section class="features-section">
+    <div class="container">
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-up">
+                <div class="feature-image">
+                    <img src="{% static 'images/contacts_padel.jpg' %}" alt="Игроки в падел" loading="lazy">
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Для всех возрастов</h3>
+                    <p>Падел — спорт, доступный каждому. От детей до взрослых, независимо от уровня подготовки.</p>
+                </div>
+            </div>
+            
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-image">
+                    <img src="{% static 'images/tournament_padel.jpg' %}" alt="Турниры" loading="lazy">
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Турниры и события</h3>
+                    <p>Регулярно проводим турниры, соревнования и тренировки для развития навыков игроков.</p>
+                </div>
+            </div>
+            
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-image">
+                    <img src="{% static 'images/court_padel.jpg' %}" alt="Корты" loading="lazy">
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Современные корты</h3>
+                    <p>Поддерживаем развитие инфраструктуры — крытые и открытые корты по всему региону.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="cta-background">
+        <img src="{% static 'images/padel_tennis_court_p_89346806.jpg' %}" alt="Падел" loading="lazy">
+        <div class="cta-overlay"></div>
+    </div>
+    <div class="cta-content" data-aos="zoom-in">
+        <h2>Присоединяйтесь к нам</h2>
+        <p>Станьте частью растущего сообщества падела в Челябинской области</p>
+        <a href="{% url 'contacts' %}" class="btn btn-light">Написать нам</a>
+    </div>
+</section>
+{% endblock %}

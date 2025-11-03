@@ -1,0 +1,35 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Ближайшие турниры{% endblock %}
+
+{% block content %}
+
+<section class="page-hero page-hero-short">
+    <div class="page-hero-background">
+        <img src="{% static 'images/hero-bg.jpg' %}" alt="Подробнее" loading="eager">
+        <div class="page-hero-overlay"></div>
+    </div>
+    <div class="page-hero-content">
+        <h1 data-aos="fade-up">Турниры</h1>
+        <p data-aos="fade-up" data-aos-delay="100">Приглашаем всех игроков на наши турниры</p>
+    </div>
+</section>
+
+<section class="about-intro">
+    <div class="container">
+        {% for tournament in tournaments %}
+        <div class="about-intro-grid">
+            <div class="about-intro-text" data-aos="fade-right">
+                <h2>{{ tournament.title }}</h2>
+                <p>{{ tournament.text }}</p>
+            </div>
+            <div class="about-intro-image" data-aos="fade-left">
+                <img src="{{ tournament.image.url }}" alt="{{ tournament.title }}" loading="lazy">
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}
