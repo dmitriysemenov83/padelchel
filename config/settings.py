@@ -24,13 +24,28 @@ load_dotenv(BASE_DIR / '.env')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-h@v*p_+flpb&r$=#i=83e-is^p()u+$i$s#2aq9qw6(s_$zxni'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'падел74.рф',
+    'www.падел74.рф',
+    'xn--74-6kcqf0bya.xn--p1ai',
+    '83.69.236.20',
+]
 
+CSRF_TRUSTED_ORIGINS = [
+    'http://падел74.рф',
+    'http://www.падел74.рф',
+    'http://xn--74-6kcqf0bya.xn--p1ai',
+    'http://193.46.218.87',
+
+    # Если будем подключать HTTPS:
+    # 'https://падел74.рф',
+    # 'https://www.падел74.рф',
+]
 
 # Application definition
 
@@ -86,9 +101,9 @@ DATABASES = {
         'ENGINE': os.getenv('DB_ENGINE'),
         'NAME': os.getenv('POSTGRES_DB'),
         'USER': os.getenv('POSTGRES_USER'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),
+        # 'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        # 'HOST': os.getenv('DB_HOST'),
+        # 'PORT': os.getenv('DB_PORT'),
     }
 }
 
