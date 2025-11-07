@@ -27,7 +27,7 @@ load_dotenv(BASE_DIR / '.env')
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'падел74.рф',
@@ -40,7 +40,7 @@ CSRF_TRUSTED_ORIGINS = [
     'http://падел74.рф',
     'http://www.падел74.рф',
     'http://xn--74-6kcqf0bya.xn--p1ai',
-    'http://193.46.218.87',
+    'http://83.69.236.20',
 
     # Если будем подключать HTTPS:
     # 'https://падел74.рф',
@@ -150,6 +150,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # для collectstatic
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
