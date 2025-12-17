@@ -6,3 +6,4 @@ python-dotenv
 sqlparse
 django-redis
 redis
+idna
