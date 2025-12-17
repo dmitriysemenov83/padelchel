@@ -29,12 +29,18 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+# Для HTTP (без SSL)
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+
 # ALLOWED_HOSTS = []
 
 ALLOWED_HOSTS = [
     'падел74.рф',
     'www.падел74.рф',
     'xn--74-6kcqf0bya.xn--p1ai',
+    'www.xn--74-6kcqf0bya.xn--p1ai',
     '83.69.236.20',
 ]
 
@@ -42,6 +48,7 @@ CSRF_TRUSTED_ORIGINS = [
     'http://падел74.рф',
     'http://www.падел74.рф',
     'http://xn--74-6kcqf0bya.xn--p1ai',
+    'http://www.xn--74-6kcqf0bya.xn--p1ai',
     'http://83.69.236.20',
 
     # Если будем подключать HTTPS:
