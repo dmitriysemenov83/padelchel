@@ -41,6 +41,7 @@ ALLOWED_HOSTS = [
     'www.падел74.рф',
     'xn--74-6kcqf0bya.xn--p1ai',
     'www.xn--74-6kcqf0bya.xn--p1ai',
+    'www.падел74.рф:80',
     '83.69.236.20',
 ]
 
