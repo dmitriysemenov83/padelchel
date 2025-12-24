@@ -1,6 +1,8 @@
 from django.urls import path
+from django.views.generic import TemplateView
+
 from . import views
-from .views import tournaments
+
 
 urlpatterns = [
     # path('', views.index, name='index'),
@@ -9,4 +11,8 @@ urlpatterns = [
     path('more/', views.more, name='more'),
     path('about/', views.about, name='about'),
     path('contacts/', views.contacts, name='contacts'),
+
+    path('sitemap.xml', TemplateView.as_view(
+        template_name='main/sitemap.xml',
+        content_type='application/xml'), name='sitemap'),
 ]
