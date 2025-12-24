@@ -15,4 +15,6 @@ urlpatterns = [
     path('sitemap.xml', TemplateView.as_view(
         template_name='main/sitemap.xml',
         content_type='application/xml'), name='sitemap'),
+
+    path('robots.txt', views.robots_txt, name='robots_txt'),
 ]

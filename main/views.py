@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.http import HttpResponse
 from django.shortcuts import render
 from .models import AboutSection, InfoBlock, AboutPage, ContactInfo, Tournaments
 from django.views.decorators.cache import cache_page
@@ -59,3 +61,31 @@ def contacts(request):
             'contact': contact
          }
     )
+
+
+@cache_page(60 * 60 * 24)
+def robots_txt(request):
+    rules = [
+        "User-agent: *",
+        "Allow: /",
+        "",
+        "# Административные разделы",
+        "Disallow: /admin/",
+        "Disallow: /admin-*",
+        "Disallow: /api/admin/",
+        "",
+        "# Sitemap",
+        f"Sitemap: http://падел74.рф/sitemap.xml",
+        "",
+        "# Федерация падела Челябинской области",
+        f"# Сайт: падел74.рф",
+    ]
+
+    if settings.DEBUG:
+        rules = [
+            "User-agent: *",
+            "Disallow: /",
+            "# Development mode - no indexing",
+        ]
+
+    return HttpResponse("\n".join(rules), content_type='text/plain')
