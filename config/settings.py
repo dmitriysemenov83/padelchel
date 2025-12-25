@@ -27,35 +27,35 @@ load_dotenv(BASE_DIR / '.env')
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv('DJANGO_DEBUG', 'True').lower() in ('true', '1', 'yes', 'on')
 
-# Для HTTP (без SSL)
-SECURE_SSL_REDIRECT = False
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = False
+ALLOWED_HOSTS = []
+if not DEBUG:
+    # Для HTTP (без SSL)
+    SECURE_SSL_REDIRECT = False
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
 
-# ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = [
+        'падел74.рф',
+        'www.падел74.рф',
+        'xn--74-6kcqf0bya.xn--p1ai',
+        'www.xn--74-6kcqf0bya.xn--p1ai',
+        'www.падел74.рф:80',
+        '83.69.236.20',
+    ]
 
-ALLOWED_HOSTS = [
-    'падел74.рф',
-    'www.падел74.рф',
-    'xn--74-6kcqf0bya.xn--p1ai',
-    'www.xn--74-6kcqf0bya.xn--p1ai',
-    'www.падел74.рф:80',
-    '83.69.236.20',
-]
+    CSRF_TRUSTED_ORIGINS = [
+        'http://падел74.рф',
+        'http://www.падел74.рф',
+        'http://xn--74-6kcqf0bya.xn--p1ai',
+        'http://www.xn--74-6kcqf0bya.xn--p1ai',
+        'http://83.69.236.20',
 
-CSRF_TRUSTED_ORIGINS = [
-    'http://падел74.рф',
-    'http://www.падел74.рф',
-    'http://xn--74-6kcqf0bya.xn--p1ai',
-    'http://www.xn--74-6kcqf0bya.xn--p1ai',
-    'http://83.69.236.20',
-
-    # Если будем подключать HTTPS:
-    # 'https://падел74.рф',
-    # 'https://www.падел74.рф',
-]
+        # Если будем подключать HTTPS:
+        # 'https://падел74.рф',
+        # 'https://www.падел74.рф',
+    ]
 
 # Application definition
 
@@ -105,17 +105,31 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': os.getenv('DB_ENGINE'),
-        'NAME': os.getenv('POSTGRES_DB'),
-        'USER': os.getenv('POSTGRES_USER'),
-        # 'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        # 'HOST': os.getenv('DB_HOST'),
-        # 'PORT': os.getenv('DB_PORT'),
+if DEBUG:
+    # Локальная разработка
+    DATABASES = {
+        'default': {
+            'ENGINE': os.getenv('DB_ENGINE'),
+            'NAME': os.getenv('POSTGRES_DB'),
+            'USER': os.getenv('POSTGRES_USER'),
+            'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+            'HOST': os.getenv('DB_HOST'),
+            'PORT': os.getenv('DB_PORT'),
+        }
     }
-}
+else:
+    # Продакшен
+    DATABASES = {
+        'default': {
+            'ENGINE': os.getenv('DB_ENGINE'),
+            'NAME': os.getenv('POSTGRES_DB'),
+            'USER': os.getenv('POSTGRES_USER'),
+            # 'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+            # 'HOST': os.getenv('DB_HOST'),
+            # 'PORT': os.getenv('DB_PORT'),
+        }
+    }
+
 
 # DATABASES = {
 #     'default': {
