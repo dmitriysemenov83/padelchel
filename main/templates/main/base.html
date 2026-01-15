@@ -43,7 +43,7 @@
                         </div>
                         <div class="logo-text">
                             <span class="brand-name">Федерация падела</span>
-                            <span class="brand-subtitle">Челябинской области</span>
+                            <span class="brand-subtitle">{{ AREA }}</span>
                         </div>
                     </a>
                 </div>
@@ -57,7 +57,7 @@
                 <ul class="nav-menu">
                     <li><a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Главная</a></li>
                     <li><a href="{% url 'tournaments' %}" class="nav-link {% if request.resolver_match.url_name == 'tournaments' %}active{% endif %}">Турниры</a></li>
-                    <li><a href="{% url 'about' %}" class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">О ФПЧО</a></li>
+                    <li><a href="{% url 'about' %}" class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">О федерации</a></li>
                     <li><a href="{% url 'contacts' %}" class="nav-link {% if request.resolver_match.url_name == 'contacts' %}active{% endif %}">Контакты</a></li>
                 </ul>
             </div>
@@ -79,7 +79,7 @@
                         </div>
                         <div class="logo-text">
                             <span class="brand-name">Федерация падела</span>
-                            <span class="brand-subtitle">Челябинской области</span>
+                            <span class="brand-subtitle">{{ AREA }}</span>
                         </div>
                     </div>
                     <p class="footer-description">
@@ -113,7 +113,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2025 Федерация падела Челябинской области. Все права защищены.</p>
+                <p>&copy; 2025 Федерация падела {{ AREA }}. Все права защищены.</p>
             </div>
         </div>
     </footer>

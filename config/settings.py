@@ -19,6 +19,28 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv(BASE_DIR / '.env')
 
+# Региональные настройки
+REGION = os.getenv('REGION')
+
+REGION_CONFIG = {
+    'chelyabinsk': {
+        'site_name': os.getenv('SITE_NAME'),
+        'area': os.getenv('AREA'),
+        'telegram': '@padel_chel',
+        'vk': 'vk.com/padel_chel',
+        'instagram': '@padel_chel',
+    },
+    'samara': {
+        'site_name': os.getenv('SITE_NAME'),
+        'area': os.getenv('AREA'),
+        'telegram': '@padel_samara',
+        'vk': 'vk.com/padel_samara',
+        'instagram': '@padel_samara',
+    }
+}
+
+# Текущая конфигурация
+CURRENT_REGION = REGION_CONFIG[REGION]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -36,26 +58,42 @@ if not DEBUG:
     SESSION_COOKIE_SECURE = False
     CSRF_COOKIE_SECURE = False
 
-    ALLOWED_HOSTS = [
-        'падел74.рф',
-        'www.падел74.рф',
-        'xn--74-6kcqf0bya.xn--p1ai',
-        'www.xn--74-6kcqf0bya.xn--p1ai',
-        'www.падел74.рф:80',
-        '83.69.236.20',
-    ]
+    # Региональные хосты
+    if REGION == 'samara':
+        regional_hosts = [
+            'padel63.ru',
+            'www.padel63.ru',
+            'IP_САМАРСКОГО_СЕРВЕРА',  # замените
+        ]
+        regional_csrf = [
+            'http://padel63.ru',
+            'http://www.padel63.ru',
+        ]
+    else:  # chelyabinsk
+        regional_hosts = [
+            'падел74.рф',
+            'www.падел74.рф',
+            'xn--74-6kcqf0bya.xn--p1ai',
+            'www.xn--74-6kcqf0bya.xn--p1ai',
+            'www.падел74.рф:80',
+            '83.69.236.20',
+        ]
 
-    CSRF_TRUSTED_ORIGINS = [
-        'http://падел74.рф',
-        'http://www.падел74.рф',
-        'http://xn--74-6kcqf0bya.xn--p1ai',
-        'http://www.xn--74-6kcqf0bya.xn--p1ai',
-        'http://83.69.236.20',
+        regional_csrf = [
+            'http://падел74.рф',
+            'http://www.падел74.рф',
+            'http://xn--74-6kcqf0bya.xn--p1ai',
+            'http://www.xn--74-6kcqf0bya.xn--p1ai',
+            'http://83.69.236.20',
 
-        # Если будем подключать HTTPS:
-        # 'https://падел74.рф',
-        # 'https://www.падел74.рф',
-    ]
+            # Если будем подключать HTTPS:
+            # 'https://падел74.рф',
+            # 'https://www.падел74.рф',
+        ]
+
+    # Объединяем
+    ALLOWED_HOSTS = regional_hosts
+    CSRF_TRUSTED_ORIGINS = regional_csrf
 
 # Application definition
 
@@ -93,7 +131,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # 'main.context_processors.ContactInfo'
+                'config.context_processors.region_context',
             ],
         },
     },
