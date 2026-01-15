@@ -1,7 +1,7 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block title %}Главная - Федерация падела Челябинской области{% endblock %}
+{% block title %}Главная - {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
 <section class="hero-section">
@@ -10,7 +10,7 @@
         <div class="hero-overlay"></div>
     </div>
     <div class="hero-content">
-        <h1 class="hero-title" data-aos="fade-up">Федерация падела<br>Челябинской области</h1>
+        <h1 class="hero-title" data-aos="fade-up">Федерация падела<br>{{ AREA }}</h1>
         <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">
             Развиваем динамичный, современный и доступный вид спорта для всех возрастов
         </p>

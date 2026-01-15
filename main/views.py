@@ -65,6 +65,14 @@ def contacts(request):
 
 @cache_page(60 * 60 * 24)
 def robots_txt(request):
+
+    if settings.REGION == 'samara':
+        domain = 'padel63.ru'
+        site_info = '# Федерация падела Самарской области'
+    else:
+        domain = 'падел74.рф'
+        site_info = '# Федерация падела Челябинской области'
+
     rules = [
         "User-agent: *",
         "Allow: /",
@@ -75,10 +83,10 @@ def robots_txt(request):
         "Disallow: /api/admin/",
         "",
         "# Sitemap",
-        f"Sitemap: http://падел74.рф/sitemap.xml",
+        f"Sitemap: http://{domain}/sitemap.xml",
         "",
-        "# Федерация падела Челябинской области",
-        f"# Сайт: падел74.рф",
+        f"# {site_info}",
+        f"# Сайт: {domain}",
     ]
 
     if settings.DEBUG:
