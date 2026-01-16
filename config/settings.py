@@ -63,11 +63,12 @@ if not DEBUG:
         regional_hosts = [
             'padel63.ru',
             'www.padel63.ru',
-            'IP_САМАРСКОГО_СЕРВЕРА',  # замените
+            '83.69.236.167',
         ]
         regional_csrf = [
             'http://padel63.ru',
             'http://www.padel63.ru',
+            'http://83.69.236.167',
         ]
     else:  # chelyabinsk
         regional_hosts = [
