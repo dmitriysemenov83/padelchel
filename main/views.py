@@ -19,7 +19,7 @@ def home(request):
 
 @cache_page(60 * 5)
 def tournaments(request):
-    tournaments = Tournaments.objects.all().order_by('-id')
+    tournaments = Tournaments.objects.all().order_by('id')
     contact = ContactInfo.objects.first()
     return render(request, 'main/tournaments.html',
         {
