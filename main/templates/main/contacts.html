@@ -31,7 +31,7 @@
                         </div>
                         <div class="contact-details">
                             <h3>Email</h3>
-                            <a href="mailto:padel74@mail.ru">{{ contact.email }}</a>
+                            <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
                         </div>
                     </div>
 
@@ -41,7 +41,7 @@
                         </div>
                         <div class="contact-details">
                             <h3>Телефон</h3>
-                            <a href="tel:+79517961474">{{ contact.phone }}</a>
+                            <a href="tel:{{ contact.phone }}">{{ contact.phone }}</a>
                         </div>
                     </div>
 
@@ -69,7 +69,7 @@
                 <div class="social-section">
                     <h3>Мы в социальных сетях</h3>
                     <div class="social-links-large">
-                        <a href="#" class="social-link-large" aria-label="Telegram">
+                        <a href="{{ TELEGRAM }}" class="social-link-large" aria-label="Telegram">
                             <i class="fab fa-telegram"></i>
                             <span>Telegram</span>
                         </a>

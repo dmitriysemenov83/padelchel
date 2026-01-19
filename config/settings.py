@@ -26,14 +26,14 @@ REGION_CONFIG = {
     'chelyabinsk': {
         'site_name': os.getenv('SITE_NAME'),
         'area': os.getenv('AREA'),
-        'telegram': '@padel_chel',
+        'telegram': os.getenv('TELEGRAM'),
         'vk': 'vk.com/padel_chel',
         'instagram': '@padel_chel',
     },
     'samara': {
         'site_name': os.getenv('SITE_NAME'),
         'area': os.getenv('AREA'),
-        'telegram': '@padel_samara',
+        'telegram': os.getenv('TELEGRAM'),
         'vk': 'vk.com/padel_samara',
         'instagram': '@padel_samara',
     }

@@ -90,8 +90,8 @@
                 <div class="footer-section">
                     <h3>Контакты</h3>
                     <ul class="footer-links">
-                        <li><a href="mailto:padel74@mail.ru"><i class="fas fa-envelope"></i> {{ contact.email }}</a></li>
-                        <li><a href="tel:+79517961474"><i class="fas fa-phone"></i> {{ contact.phone }}</a></li>
+                        <li><a href="mailto:{{ contact.email }}"><i class="fas fa-envelope"></i> {{ contact.email }}</a></li>
+                        <li><a href="tel:{{ contact.phone }}"><i class="fas fa-phone"></i> {{ contact.phone }}</a></li>
                         <li><i class="fas fa-map-marker-alt"></i> {{ contact.address }}</li>
                     </ul>
                 </div>
@@ -99,7 +99,7 @@
                 <div class="footer-section">
                     <h3>Социальные сети</h3>
                     <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Telegram">
+                        <a href="{{ TELEGRAM }}" class="social-link" aria-label="Telegram">
                             <i class="fab fa-telegram"></i>
                         </a>
                         <a href="#" class="social-link" aria-label="VK">
