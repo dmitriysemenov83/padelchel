@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import AboutSection, InfoBlock, AboutPage, ContactInfo, Tournaments
+from .models import AboutSection, InfoBlock, AboutPage, ContactInfo, Tournaments, GallerySection
 from django.views.decorators.cache import cache_page
 
 
@@ -45,10 +45,12 @@ def more(request):
 def about(request):
     about_page = AboutPage.objects.first()
     contact = ContactInfo.objects.first()
+    gallery = GallerySection.objects.prefetch_related('images').first()
     return render(request, 'main/about.html',
         {
             'about_page': about_page,
-            'contact': contact
+            'contact': contact,
+            'gallery': gallery
         }
     )
 

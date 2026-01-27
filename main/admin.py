@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import AboutSection, InfoBlock, AboutPage, ContactInfo, Tournaments
+from .models import AboutSection, InfoBlock, AboutPage, ContactInfo, Tournaments, GalleryImage, GallerySection
 
 admin.site.site_header = 'Административная панель'
 admin.site.site_title = 'Административная панель'
@@ -36,3 +36,14 @@ class TournamentsAdmin(admin.ModelAdmin):
 @admin.register(ContactInfo)
 class ContactInfoAdmin(admin.ModelAdmin):
     list_display = ("title", "email", "phone", "address")
+
+
+class GalleryImageInline(admin.TabularInline):
+    model = GalleryImage
+    extra = 1
+
+
+@admin.register(GallerySection)
+class GallerySectionAdmin(admin.ModelAdmin):
+    list_display = ("title", "text")
+    inlines = (GalleryImageInline,)

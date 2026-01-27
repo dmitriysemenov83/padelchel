@@ -77,3 +77,31 @@ class ContactInfo(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class GallerySection(models.Model):
+    title = models.CharField(max_length=200, verbose_name="Заголовок секции")
+    text = models.TextField(blank=True, verbose_name="Описание секции")
+
+    class Meta:
+        db_table = "gallery_section"
+        verbose_name = "Секция галереи"
+        verbose_name_plural = "Секция галереи"
+
+    def __str__(self):
+        return self.title
+
+
+class GalleryImage(models.Model):
+    section = models.ForeignKey(GallerySection, on_delete=models.CASCADE, related_name="images", verbose_name="Секция")
+    image = models.ImageField(upload_to="gallery/", verbose_name="Изображение")
+    order = models.PositiveIntegerField(default=0, verbose_name="Порядок")
+
+    class Meta:
+        db_table = "gallery_image"
+        verbose_name = "Изображение галереи"
+        verbose_name_plural = "Изображения галереи"
+        ordering = ["order"]
+
+    def __str__(self):
+        return f"Изображение {self.id}"
