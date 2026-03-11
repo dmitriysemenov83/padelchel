@@ -28,7 +28,7 @@ REGION_CONFIG = {
         'area': os.getenv('AREA'),
         'telegram': os.getenv('TELEGRAM'),
         'vk': 'vk.com/padel_chel',
-        'instagram': '@padel_chel',
+        'instagram': os.getenv('INSTAGRAM'),
     },
     'samara': {
         'site_name': os.getenv('SITE_NAME'),
