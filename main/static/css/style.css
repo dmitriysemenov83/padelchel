@@ -572,20 +572,6 @@ body {
     background: var(--light-color);
 }
 
-/* Специально для турниров */
-.tournaments-image {
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-}
-
-.tournaments-image img {
-    width: 100% !important;
-    height: auto !important;
-    object-fit: unset !important;
-    display: block;
-}
-
 .goals-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
